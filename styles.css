@@ -97,6 +97,7 @@ legend {
   --color-dark-gray: #404040;
   --color-light-gray: #C4C4C4;
   --color-dark: #000;
+  --color-dark-alternate: #131619; 
 
   --border-radius: 30px;
   --border: 1px solid var(--color-light);
@@ -162,6 +163,8 @@ h1,h2,h3,h4,h5,h6{
   align-items: center;
   column-gap: 20px;
   padding-inline: 32px;
+  background-color: var(--color-dark-alternate);
+  min-height: 90px;
 }
 
 .header-logo{
@@ -210,7 +213,58 @@ h1,h2,h3,h4,h5,h6{
   height: 40px;
 }
 
+.banner{
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  min-height: calc(100vh - 90px);
+  padding: 36px 70px;
+  color: var(--color-light);
+  background-color: var(--color-dark-alternate);
+}
 
+.banner-body{
+  text-transform: uppercase;
+}
+
+.banner-info{
+  display: flex;
+  align-items: end;
+  font-size: clamp(16px, 1.56vw, 30px);
+}
+
+.banner-info::before{
+  content: "";
+  width: clamp(60px, 10.1vw, 194px);
+  aspect-ratio: 1;
+  margin-right: 30px;
+  background: url("./images/arrow.png") center/contain no-repeat;
+}
+
+.banner-title{
+  font-size: min(18.75vw, 360px);
+}
+
+.banner-pagination-list{
+  display: flex;
+  justify-content: center;
+  column-gap: 14px;  
+}
+
+.banner-pagination-item{
+  display: flex;
+}
+
+.banner-pagination-button{
+  border: var(--border);
+  width: 10px;
+  aspect-ratio: 1.1;
+  border-radius: 50%;
+}
+
+.banner-pagination-button.is-current{
+  background-color: #fff;
+}
 /* responsive web design */
 
 @media (max-width: 1024px) {
@@ -218,8 +272,13 @@ h1,h2,h3,h4,h5,h6{
     flex-wrap: wrap;
     row-gap: 10px;
     padding-top: 20px;
-    padding-inline: 15px;
   }
+
+.header,
+.banner{
+  padding-inline: 15px;
+}
+
   .header-menu{
     order: 1;
     flex-basis: 100%;
@@ -245,5 +304,9 @@ h1,h2,h3,h4,h5,h6{
   }
   .button{
     padding-inline: 18px;
+  }
+
+  .banner-info::before{
+    margin-right: 10px;
   }
 }
